@@ -31,7 +31,9 @@ let index = 0;
    let prev = document.getElementById("previous");
 
    prev.addEventListener("click", () => {
-    index -= 1;
+    if(index > 0){
+        index -= 1;
+    }
     let ind = document.getElementById("index");
     ind.innerText = index;
     updatePlanetDisplay(index, planetsArray);
@@ -40,7 +42,10 @@ let index = 0;
    let nxt = document.getElementById("next")
 
    nxt.addEventListener("click", () => {
-    index += 1;
+    if(index < 7){
+        index += 1;
+    }
+    
     let ind = document.getElementById("index");
     ind.innerText = index;
     updatePlanetDisplay(index, planetsArray);
@@ -52,7 +57,7 @@ let index = 0;
 
 
    function updatePlanetDisplay(index, planetsArray){
-    planetB = planetsArray[index];
+    let planetB = planetsArray[index];
     let pname = document.getElementById("pname");
     pname.innerText = planetB.name;
 
@@ -67,8 +72,8 @@ let index = 0;
     let planetCircle = document.getElementById("circle");
 
     planetCircle.style.backgroundColor = planetB.color;
-    planetCircle.style.width = planetB.diameter / 100 + 'px';
-    planetCircle.style.length = planetB.diameter / 100 + 'px';
+    planetCircle.style.width = planetB.diameter/100 + "px";
+    planetCircle.style.height = planetB.diameter/100 + "px";
     
 
 
